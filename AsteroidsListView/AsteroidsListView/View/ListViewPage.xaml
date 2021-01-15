@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AsteroidsListView.View.ListViewPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="MyListView"
+            ItemTapped="Handle_ItemTapped"
+            BackgroundColor="DimGray"
+            CachingStrategy="RecycleElement"
+            ItemsSource="{Binding Object}"
+            Margin="5, 10"
+            HasUnevenRows="True">
+                <ListView.Header>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Vesmírné objekty" Margin="5, 20"/>
+                    </StackLayout>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Margin="5,10">
+                                <Label Text="{Binding Name}" TextColor="Black"/>
+                                <Label Text="{Binding Type}" TextColor="Gray"/>
+                                <Label Text="{Binding Age, StringFormat='{0:N0} miliard let'}" TextColor="Gray" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
